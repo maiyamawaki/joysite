@@ -42,6 +42,15 @@ public class Product {
 
 	public Product() {}
 
+	public Product(String productName, String description, BigDecimal price, String productImage, Integer stock, boolean delFlg) {
+		this.productName = productName;
+		this.description = description;
+		this.price = price;
+		this.productImage = productImage;
+		this.stock = stock;
+		this.delFlg = delFlg;
+	}
+
 	@PrePersist
 	public void preTimeSet() {
 		this.insTime = LocalDateTime.now();

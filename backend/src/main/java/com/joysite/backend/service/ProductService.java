@@ -38,4 +38,15 @@ public class ProductService {
 																				.collect(Collectors.toList());
 		return productList;
 	}
+
+	public List<ProductDto> createProduct(ProductDto productDto) {
+		Product product =  new Product(productDto.getProductName(),
+																	productDto.getDescription(),
+																	productDto.getPrice(),
+																	productDto.getProductImage(),
+																	productDto.getStock(),
+																	false);
+		productRepo.save(product);
+		return getAllProduct();
+	}
 }
