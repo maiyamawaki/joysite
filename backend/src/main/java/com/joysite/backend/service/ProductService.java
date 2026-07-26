@@ -12,7 +12,7 @@ import com.joysite.backend.dto.ProductDto;
 @Service
 public class ProductService {
 	
-	ProductRepository productRepo;
+	private ProductRepository productRepo;
 
 	public ProductService(ProductRepository productRepo) {
 		this.productRepo = productRepo;
