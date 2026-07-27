@@ -31,6 +31,16 @@ public class ProductService {
 		return dto;
 	}
 
+	public Product toEntity(ProductDto productDto) {
+		Product product = new Product(productDto.getProductName(),
+																	productDto.getDescription(),
+																	productDto.getPrice(),
+																	productDto.getProductImage(),
+																	productDto.getStock(),
+																	productDto.isDelFlg());
+		return product;
+	}
+
 	public List<ProductDto> getAllProduct() {
 		List<ProductDto> productList = productRepo.findAll()
 																				.stream()

@@ -28,7 +28,7 @@ public class UsrService {
 		return dto;
 	}
 
-	public UsrDto registerUser(UsrDto usrDto) {
+	public Usr registerUser(UsrDto usrDto) {
 		Usr usr = usrRepo.findbyEmail(usrDto.getEmail());
 		if(usr == null) {
 			Usr newUser = new Usr(usrDto.getFamilyName(),
@@ -38,9 +38,9 @@ public class UsrService {
 												usrDto.getPostalCode(),
 												usrDto.getAddress());
 			usrRepo.save(newUser);
-			return toDto(newUser);
+			return newUser;
 		}  else {
-			return usrDto;
+			return usr;
 		}
 	}
 

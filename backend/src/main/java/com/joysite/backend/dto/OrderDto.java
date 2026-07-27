@@ -24,7 +24,7 @@ public class OrderDto {
 		this.insTime = insTime;
 		this.updTime = updTime;
 	}
-
+	
 	public Long getOrderId() {
 		return orderId;
 	}
