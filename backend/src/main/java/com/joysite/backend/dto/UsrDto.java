@@ -2,8 +2,6 @@ package com.joysite.backend.dto;
 
 import java.time.LocalDateTime;
 
-import org.springframework.cglib.core.Local;
-
 public class UsrDto {
 	
 	private Long userId;
