@@ -29,7 +29,7 @@ public class UsrService {
 	}
 
 	public Usr registerUser(UsrDto usrDto) {
-		Usr usr = usrRepo.findbyEmail(usrDto.getEmail());
+		Usr usr = usrRepo.findByEmail(usrDto.getEmail());
 		if(usr == null) {
 			Usr newUser = new Usr(usrDto.getFamilyName(),
 												usrDto.getFirstName(),
@@ -45,7 +45,7 @@ public class UsrService {
 	}
 
 	public UsrDto getUserByEmail(String email) {
-		Usr usr = usrRepo.findbyEmail(email);
+		Usr usr = usrRepo.findByEmail(email);
 		return toDto(usr);
 	}
 

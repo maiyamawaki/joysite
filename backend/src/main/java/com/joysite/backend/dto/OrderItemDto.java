@@ -3,15 +3,10 @@ package com.joysite.backend.dto;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import com.joysite.backend.entity.Product;
-
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
-
 public class OrderItemDto {
 	private Long itemId;
+
+	private Long productId;
 
 	private BigDecimal price;
 
@@ -23,8 +18,9 @@ public class OrderItemDto {
 
 	public OrderItemDto() {}
 
-	public OrderItemDto(Long itemId, BigDecimal price, Integer quantity, LocalDateTime insTime, LocalDateTime updTime) {
+	public OrderItemDto(Long itemId, Long productId, BigDecimal price, Integer quantity, LocalDateTime insTime, LocalDateTime updTime) {
 		this.itemId = itemId;
+		this.productId = productId;
 		this.price = price;
 		this.quantity = quantity;
 		this.insTime = insTime;
@@ -33,6 +29,10 @@ public class OrderItemDto {
 
 	public Long getItemId() {
 		return itemId;
+	}
+
+	public Long getProductId() {
+		return productId;
 	}
 
 	public BigDecimal getPrice() {

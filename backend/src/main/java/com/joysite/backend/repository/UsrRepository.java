@@ -6,5 +6,5 @@ import com.joysite.backend.entity.Usr;
 
 public interface UsrRepository extends JpaRepository<Usr, Long>{
 	
-	public Usr findbyEmail(String email);
+	public Usr findByEmail(String email);
 }

@@ -13,11 +13,8 @@ public class OrderItemService {
 	
 	private OrderItemRepository orderItemRepo;
 
-	private ProductService productService;
-
-	public OrderItemService(OrderItemRepository orderItemRepo, ProductService productService) {
+	public OrderItemService(OrderItemRepository orderItemRepo) {
 		this.orderItemRepo = orderItemRepo;
-		this.productService = productService;
 	}
 
 	public void registerOrderItem(OrderItemDto orderItemDto, Order order, Product product) {

@@ -59,4 +59,9 @@ public class ProductService {
 		productRepo.save(product);
 		return getAllProduct();
 	}
+
+	public Product getProductById(Long productId) {
+		Product product = productRepo.findById(productId).orElse(null);
+		return product;
+	}
 }
