@@ -2,12 +2,15 @@ package com.joysite.backend.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.joysite.backend.service.ProductService;
 import com.joysite.backend.dto.ProductDto;
 
 @RestController
+@RequestMapping("/api/products")
 public class ProductController {
 	
 	ProductService productService;
@@ -16,6 +19,7 @@ public class ProductController {
 		this.productService = productService;
 	}
 
+	@GetMapping
 	public List<ProductDto> getAllProduct() {
 		List<ProductDto> productList = productService.getAllProduct();
 		return productList;
