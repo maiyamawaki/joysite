@@ -65,4 +65,17 @@ public class ProductService {
 		return product;
 	}
 
+	public List<ProductDto> updateProduct(Long productId, ProductDto productDto){
+		Product product = productRepo.findById(productId).orElse(null);
+		if(product != null) {
+			product.setProductName(productDto.getProductName());
+			product.setDescription(productDto.getDescription());
+			product.setPrice(productDto.getPrice());
+			product.setProductImage(productDto.getProductImage());
+			product.setStock(productDto.getStock());
+			productRepo.save(product);
+		}
+		return getAllProduct();
+	}
+
 }

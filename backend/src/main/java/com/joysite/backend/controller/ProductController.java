@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.joysite.backend.service.ProductService;
 import com.joysite.backend.dto.ProductDto;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 @RequestMapping("/api/products")
@@ -30,6 +33,12 @@ public class ProductController {
 	@PostMapping
 	public List<ProductDto> registerProdutct(@RequestBody ProductDto productDto) {
 		List<ProductDto> productList = productService.createProduct(productDto);
+		return productList;
+	}
+
+	@PutMapping("/{id}")
+	public List<ProductDto> updateProduct(@PathVariable Long productId, @RequestBody ProductDto productDto) {
+		List<ProductDto> productList = productService.updateProduct(productId, productDto);
 		return productList;
 	}
 }

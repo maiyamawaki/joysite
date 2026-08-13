@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { useLogin } from "../hooks/useAdminUser";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
 	const {handleLogin} = useLogin();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const navigate = useNavigate();
 
 	const handleLoginSubmit = async(e) => {
 		e.preventDefault();
 
 		try {
 			await handleLogin(email, password);
+			navigate("/");
 		} catch(err) {
 			console.log("Error in login page : " + err);
 		}

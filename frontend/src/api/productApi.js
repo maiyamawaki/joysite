@@ -15,12 +15,12 @@ export const fetchAllProduct = async() => {
 	return products;
 }
 
-export const createProduct = async(productName, description, price, productImage, stock) {
+export const createProduct = async(productName, description, price, productImage, stock) => {
 	const response = await fetch(`${BASE_URL}`, {
 		method : "POST",
 		credentials: "include",
 		headers : {"Content-type" : "application/json"},
-		body : JSON.stringify({productName, description, price, productImage, productImage, stock}),
+		body : JSON.stringify({productName, description, price, productImage, stock}),
 	});
 
 	if(!response.ok) {
